@@ -1,0 +1,322 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.login input {
+  animation: inputMove 1s ease;
+}
+
+@keyframes inputMove {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.login button {
+  transition: 0.3s;
+}
+
+body {
+  background-color: lightblue;
+}
+
+.login {
+  width: 350px;
+  margin: 100px auto;
+  padding: 30px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  box-shadow: 0 0 15px gray;
+  animation: slideDown 1s ease;
+  transition: 0.5s;
+}
+
+.login h1 {
+  margin-bottom: 20px;
+  animation: headingMove 1.5s ease;
+}
+
+@keyframes headingMove {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.login input {
+  display: block;
+  width: 90%;
+  padding: 12px;
+  margin: 15px auto;
+  border: 1px solid gray;
+  border-radius: 8px;
+
+}
+
+
+.login button {
+  padding: 10px 30px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: blue;
+  color: white;
+  font-size: 16px;
+  transition: 0.3s;
+}
+.login button:hover {
+ background-color: darkblue;
+  transform: scale(1.1);
+}
+
+.login button:active {
+  transform: scale(0.9);
+ box-shadow: 0 0 15px blue;
+}
+.forgot {
+  margin-top: 15px;
+  cursor: pointer;
+}
+.login input:focus {
+  outline: none;
+  border: 2px solid blue;
+  transform: scale(1.03);
+}
+
+
+.login:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 25px blue;
+}
+.forgot {
+  margin-top: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.circle {
+  width: 100px;
+  height: 100px;
+  background-color: pink;
+  border-radius: 50%;
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  animation: circleMove 3s infinite alternate;
+}
+
+@keyframes circleMove {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(250px);
+  }
+}
+.forgot:hover {
+  transform: scale(1.1);
+}
+.circle2 {
+  width: 80px;
+  height: 80px;
+  background-color: lightgreen;
+  border-radius: 50%;
+  position: absolute;
+  right: 80px;
+  bottom: 80px;
+  animation: circleMove2 4s infinite alternate;
+}
+
+@keyframes circleMove2 {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-100px);
+  }
+}
+.login input:hover {
+  border-color: blue;
+  transform: scale(1.02);
+}.remember {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 10px 0 15px;
+}
+
+.remember input {
+  width: auto;
+  margin: 0;
+}
+.subtitle {
+  margin-bottom: 20px;
+  color: gray;
+  font-size: 14px;
+}
+.signup {
+  margin-top: 20px;
+  color: gray;
+  font-size: 14px;
+}
+
+.signup span {
+  color: blue;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.signup span:hover {
+  text-decoration: underline;
+}
+.signup-page {
+  width: 350px;
+  margin: 100px auto;
+  padding: 30px;
+  text-align: center;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 0 15px gray;
+  animation: slideDown 1s ease;
+}
+
+.signup-page h1 {
+  margin-bottom: 20px;
+}
+
+.signup-page input {
+  display: block;
+  width: 90%;
+  padding: 12px;
+  margin: 15px auto;
+  border: 1px solid gray;
+  border-radius: 8px;
+}
+
+.signup-page button {
+  padding: 10px 30px;
+  border: none;
+  border-radius: 8px;
+  background-color: blue;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 5px;
+}
+
+.signup-page button:hover {
+  background-color: darkblue;
+  transform: scale(1.05);
+}
+.signup-page input {
+  animation: inputMove 1s ease;
+}
+.signup-page button {
+  transition: 0.3s;
+}
+
+.signup-page button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px blue;
+}
+
+.signup-page button:active {
+  transform: scale(0.9);
+}
+.signup-page input:focus {
+  outline: none;
+  border: 2px solid blue;
+  transform: scale(1.03);
+  box-shadow: 0 0 8px lightblue;
+}
+.signup-page input:hover {
+  border-color: blue;
+  transform: scale(1.02);
+}
+.signup-page {
+  transition: 0.5s;
+}
+
+.signup-page:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 25px blue;
+}
+.signup-page h1 {
+  animation: headingMove 1.5s ease;
+}
+.signup-page button:last-child {
+  background-color: gray;
+}
+
+.signup-page button:last-child:hover {
+  background-color: darkgray;
+}
+.signup-page {
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+}
+.show-password {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 10px 0 15px;
+}
+
+.show-password input {
+  width: auto;
+  margin: 0;
+}
+
+.show-password span {
+  font-size: 14px;
+  color: gray;
+}
+@media (max-width: 500px) {
+  .login,
+  .signup-page {
+    width: 90%;
+    margin: 50px auto;
+    padding: 20px;
+  }
+
+  .circle {
+    left: 10px;
+  }
+
+  .circle2 {
+    right: 10px;
+  }
+}
+.login button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
