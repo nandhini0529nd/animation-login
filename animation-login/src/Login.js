@@ -9,6 +9,7 @@ function Login(prop){
     const [showPassword, setShowPassword] = useState(false);
     const [rememberMe, setRememberMe] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
     useEffect(() => {
   const savedUsername = localStorage.getItem("username");
 
@@ -17,23 +18,40 @@ function Login(prop){
     setRememberMe(true);
   }
 }, []);
-  const handleLogin = () => {
+ const handleLogin = async () => {
   if (username === "" || password === "") {
     alert("Please enter username and password");
-  } else {
-    setLoading(true);
-
-    setTimeout(() => {
-      if (rememberMe) {
-        localStorage.setItem("username", username);
-      } else {
-        localStorage.removeItem("username");
-      }
-
-      alert("Login Successful!");
-      setLoading(false);
-    }, 1000);
+    return;
   }
+
+  setLoading(true);
+
+  try {
+    const response = await fetch("http://localhost:5000/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        username: username,
+        password: password
+      })
+    });
+
+    const data = await response.json();
+
+    console.log(data);
+    if (response.ok) {
+      alert(data.message);
+      setIsLoggedIn(true)
+     } else {
+     alert(data.message);
+     }
+  } catch (error) {
+      alert("Backend connection failed");
+  }
+
+  setLoading(false);
 };
 const handleKeyDown = (e) => {
   if (e.key === "Enter") {
@@ -50,7 +68,25 @@ if (showSignup) {
 const handleSignup = () => {
   setShowSignup(true);
 };
- return(
+ 
+  if (isLoggedIn) {
+  return (
+    <div className="login">
+      <h1>Welcome, {username}!</h1>
+      <p className="subtitle">You are successfully logged in.</p>
+
+      <button
+         onClick={() => {
+    setIsLoggedIn(false);
+    setpassword("");
+  }}
+>
+  Logout
+</button>
+    </div>
+  );
+}
+return(
         <>
         <div className="circle"></div>
         <div className="circle2"></div>

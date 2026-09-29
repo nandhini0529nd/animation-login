@@ -11,7 +11,7 @@ function Signup() {
   const [loading, setLoading] = useState(false);
   
 
-  const handleSignup = () => {
+  const handleSignup = async () => {
   if (
     username === "" ||
     email === "" ||
@@ -19,20 +19,46 @@ function Signup() {
     confirmPassword === ""
   ) {
     alert("Please fill all fields");
-  } else if (!email.includes("@")) {
-    alert("Please enter a valid email");
-  } else if (password !== confirmPassword) {
-    alert("Passwords do not match");
-  } else {
-    setLoading(true);
-
-    setTimeout(() => {
-      alert("Account Created Successfully!");
-      setLoading(false);
-    }, 1000);
+    return;
   }
+
+  if (!email.includes("@")) {
+    alert("Please enter a valid email");
+    return;
+  }
+
+  if (password !== confirmPassword) {
+    alert("Passwords do not match");
+    return;
+  }
+
+  setLoading(true);
+
+  try {
+    const response = await fetch("http://localhost:5000/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        username: username,
+        email: email,
+        password: password
+      })
+    });
+
+    const data = await response.json();
+
+    console.log(data);
+
+    alert("Account Created Successfully!");
+  } catch (error) {
+    alert("Backend connection failed");
+  }
+
+  setLoading(false);
 };
-const handleKeyDown = (e) => {
+ const handleKeyDown = (e) => {
   if (e.key === "Enter") {
     handleSignup();
   }
